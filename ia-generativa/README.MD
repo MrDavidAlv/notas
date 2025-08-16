@@ -337,14 +337,14 @@ Cada input_id representa un componente léxico en el vocabulario del modelo.
 Los vectores de incrustación, a menudo llamados "incrustaciones", se han utilizado en el aprendizaje automático, la recuperación de información y los casos de uso de búsqueda durante décadas. Las incrustaciones son una representación numérica y vectorizada de cualquier entidad de cualquier tipo, incluyendo texto, imágenes, videos y archivos de audio, proyectada en espacios vectoriales de dimensión muy alta.
 
 <div align="center">
-    <img src="./imagenes/vectores-incrustacion2.jpeg" width="70%">
-</div>
-
-<div align="center">
     <img src="./imagenes/vectores-incrustacion.jpeg" width="70%">
 </div>
 
 Para mayor simplicidad, usemos un espacio vectorial tridimensional simple en el cual cada incrustación sea un vector de tres valores proyectados en el espacio tridimensional. Aquí, puede ver que los componentes léxicos, como "enseñar" y "libro", están estrechamente relacionados, mientras que otros, como "coche" y "fuego", están más lejos.
+
+<div align="center">
+    <img src="./imagenes/vectores-incrustacion2.jpeg" width="70%">
+</div>
 
 ### Transformadores
 Lanzados en 2017, los transformadores están en el trono de la mayoría de los modelos de lenguaje modernos. De hecho, la "T" en BERT y GPT, dos arquitecturas lingüísticas muy populares, significa transformador.
