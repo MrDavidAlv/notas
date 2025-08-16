@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>IA-GENERATIVA.MD</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<div align="center">
+<h1 id="resumen-general-sobre-ia-generativa">RESUMEN GENERAL SOBRE IA GENERATIVA</h1>
+<img src="/imagenes/portada.png" width="20%">
+</div>
+<blockquote>
+<p>📖 Basado en el libro <em>IA Generativa en AWS</em> de Marbombo, autores: Chris, Antje y Shelbee.</p>
+</blockquote>
+<h2 id="1-casos-de-uso-de-la-ia-generativa-y-ciclo-de-vida-del-proyecto">1. CASOS DE USO DE LA IA GENERATIVA Y CICLO DE VIDA DEL PROYECTO</h2>
+<h3 id="servicios-aws-para-ia">Servicios AWS para IA</h3>
+<ul>
+<li>Bedrock</li>
+<li>SageMarker</li>
+<li>CodeWhispperer</li>
+<li>Trainium</li>
+<li>Inferentia</li>
+</ul>
+<h3 id="casos-de-uso">Casos de uso</h3>
+<ul>
+<li>Resumen texto</li>
+<li>Reescritura</li>
+<li>Extracción de información</li>
+<li>Respuesta a preguntas</li>
+<li>Detección de contenido tóxico o dañino</li>
+<li>Clasificación y moderación de contenido</li>
+<li>Interfaz conversacional</li>
+<li>Traducción</li>
+<li>Generación de código fuente</li>
+<li>Razonamiento sobre un bosquejo dibujado a mano</li>
+<li>Enmascarar información personal identificable(PII)</li>
+<li>Marketing personalizado y anuncios</li>
+</ul>
+<h3 id="modelos-b%C3%A1sicos-y-centros-de-modelos">Modelos básicos y centros de modelos</h3>
+<ul>
+<li>Modelos de redes neuronales grandes y complejos (con cantidades enormes de parámetros).
+<blockquote>
+<p>📌 <strong>NOTA:</strong>  Los parámetros aprenden en una etapa de aprendizaje llamada <em>preformación</em>, donde se utilizan grandes cantidades de datos distribuidos en CPU y GPU con lo cual al final estos pueden representar entidades complejas como el lenguaje humano, imágenes, vídeos y fragmentos de audio.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="fuentes-de-modelos-de-ia">Fuentes de modelos de IA</h3>
+<ul>
+<li>Hugging Face Model Hub</li>
+<li>Pythorch Hub</li>
+<li>Amazoz SageMaker JumpStart</li>
+</ul>
+<h3 id="ciclo-de-vida-del-proyecto-de-ia-generativa">Ciclo de vida del proyecto de IA generativa</h3>
+<p>No existe un ciclo de vida definitivo para un proyecto de IA generativa, pero esto podría concentrar las etapas más importantes de un ciclo de proyecto IA.</p>
+<div align="center">
+    <img src="/imagenes/ciclo-vida-proyecto-IA.png" width="70%">
+</div>
+<ul>
+<li><strong>Identifique caso de uso</strong>
+Aquí se define el caso de uso, alcance y tarea específica con el fin de tener claro los objetivos, comprender el potencial y las limitaciones.</li>
+<li><strong>Experimente y seleccione</strong>
+Se utilizan técnicas de <em>ingeniería de indicaciones</em> y <em>aprendizaje de contexto</em>. Inicie con un modelo básico existente y ajuste según la necesidad de la aplicación. Evalúe tamaño y recursos, probando distintas opciones en entornos como Amazon SageMaker, Hugging Face u otros para iterar rápido antes de escalar.</li>
+<li><strong>Adapte alinee y mejore</strong>
+Personalice el modelo al dominio específico y caso de uso, afinando datos y parámetros. Use técnicas como RLHF para alinearlo con valores y preferencias humanas, y compleméntelo con fuentes externas o APIs.</li>
+<li><strong>Evalúe</strong>
+Defina métricas claras para medir mejoras y alineación con metas empresariales. La evaluación continua durante la adaptación asegura que el modelo evolucione en la dirección correcta.</li>
+<li><strong>Instale e integre</strong>
+Implemente el modelo optimizando la inferencia y reduciendo latencia para mejorar la experiencia del usuario. Utilice instancias de AWS optimizadas para cargas generativas y puntos de conexión flexibles.</li>
+<li><strong>Monitoree</strong><br>
+Configure métricas y alertas con servicios como Amazon CloudWatch y CloudTrail para supervisar rendimiento y seguridad. Mantenga un control constante para ajustar y optimizar en producción.</li>
+</ul>
+<p><img src="/imagenes/ciclo-vida.png" alt="Ciclo de vida"></p>
+<h3 id="%C2%BFpor-qu%C3%A9-ia-generativa-en-la-nube">¿Por qué IA generativa en la nube?</h3>
+<ul>
+<li>
+<p><strong>Mayor flexibilidad y elección</strong>
+La nube ofrece la posibilidad de acceder a una amplia gama de servicios, modelos y herramientas para ajustarse a diferentes necesidades y casos de uso. Permite elegir el modelo adecuado para un proyecto y cambiarlo cuando sea necesario, aprovechando de forma continua las mejoras y nuevos modelos que aparecen.</p>
+</li>
+<li>
+<p><strong>Funciones de seguridad y gestión de nivel empresarial</strong>
+Los proveedores de nube suelen integrar medidas avanzadas de seguridad y gestión para proteger datos, redes y accesos. Esto incluye cifrado, aislamiento de entornos, autenticación, autorización y detección de amenazas, lo que resulta esencial en sectores con altos requerimientos regulatorios.</p>
+</li>
+<li>
+<p><strong>Capacidades generativas de última generación</strong>
+Las plataformas en la nube facilitan el uso de modelos generativos de código abierto y propietario, así como herramientas para entrenamiento, ajuste fino e implementación a gran escala. Además, los proveedores invierten en infraestructura optimizada para IA, reduciendo los tiempos y costos de desarrollo.</p>
+</li>
+<li>
+<p><strong>Gastos operativos reducidos</strong>
+Gracias a la infraestructura gestionada, la nube permite usar IA generativa sin tener que invertir en hardware propio, reduciendo gastos y simplificando la administración.</p>
+</li>
+<li>
+<p><strong>Un historial sólido de innovación continua</strong>
+Las principales plataformas de nube mantienen un ritmo constante de innovación en inteligencia artificial, lanzando mejoras y nuevos servicios que ayudan a implementar soluciones más rápidas y eficientes.</p>
+</li>
+</ul>
+<h3 id="creaci%C3%B3n-de-aplicaciones-de-ia-generativa">Creación de aplicaciones de IA generativa</h3>
+<p>Una aplicación de IA generativa incluye modelos generativos.</p>
+<blockquote>
+<p>📌 <strong>NOTA:</strong> Generalmente, los proveedores de la nube ofrecen herramientas que empaquetan estas arquitecturas, como lo es CodeWhisper de AWS.</p>
+</blockquote>
+<p><strong>Diagrama APP general</strong></p>
+<div align="center">
+<img src="/imagenes/AppIA.jpeg" width="70%">
+</div>
+<p><strong>Diagrama APP ejemplo en AWS</strong></p>
+<div align="center">
+ <img src="/imagenes/AppIAAWS.jpeg" width="70%">
+</div>
+<h2 id="2-ingenier%C3%ADa-de-indicaciones-y-aprendizaje-en-contexto">2. INGENIERÍA DE INDICACIONES Y APRENDIZAJE EN CONTEXTO</h2>
+<p>Incluye métodos de código bajo para interactuar con modelos de IA generativa. <em>&quot;Escribir indicaciones es tanto un arte como una ciencia&quot;</em>.<br>
+Aprendizaje en <em>contexto</em>: uso de pares de preguntas y respuestas.<br>
+Ajuste de parámetros generativos, como la temperatura y <em>top-k</em>, para controlar la creatividad del modelo.
+Componentes léxicos(tokens) de texto.</p>
+<h3 id="indicaciones-y-respuestas">Indicaciones y respuestas</h3>
+<p>Generalmente, las indicaciones se dan en texto y se da una respuesta en texto. En modelos multimodales, devuelve otro tipo de respuestas: la respuesta puede contener texto, imagen, audio o video. El modelo aprenderá a optimizar las respuestas para dar el mejor resultado.</p>
+<h3 id="componentes-l%C3%A9xicos">Componentes léxicos</h3>
+<p>Los modelos de IA generativa entienden las instrucciones en contexto a través de tokens, en los cuales las palabras se fragmentan y combinan de diferentes maneras, integrando diversos componentes léxicos.</p>
+<div align="center">
+ <img src="/imagenes/token.png" width="70%">
+</div>
+<blockquote>
+<p><strong>Token 🧩:</strong> En el contexto de la inteligencia artificial y el procesamiento de lenguaje natural, un token es una unidad mínima de texto que el modelo utiliza para procesar y generar lenguaje.
+Puede ser una palabra completa, parte de una palabra, un signo de puntuación o incluso un espacio, dependiendo del sistema de tokenización.
+Los modelos transforman el texto en tokens para convertirlo en representaciones numéricas que pueden ser interpretadas y manipuladas mediante cálculos algebraicos y estadísticos.</p>
+</blockquote>
+<blockquote>
+<p>📌 <strong>Ventajas:</strong>  Esta forma de estructurar el vocabulario permite que el modelo aprenda y comprenda el lenguaje humano durante la etapa de preentrenamiento. Además, facilita el cálculo de la respuesta, ya que esta es el resultado de operaciones algebraicas y estadísticas.</p>
+</blockquote>
+<h3 id="ingenier%C3%ADa-de-indicaciones">Ingeniería de indicaciones</h3>
+<p>Habilidad enfocada en comprender y aplicar modelos de IA generativa a tareas y casos de uso, con el objetivo de obtener el máximo provecho de los modelos y sus aplicaciones.
+Generalmente, se itera múltiples veces antes de obtener la respuesta final, ya que los modelos suelen generar grandes volúmenes de texto.
+La mayoría de los modelos de IA generativa han sido afinados con la ayuda de personas que etiquetan los resultados, en un proceso conocido como <em>aprendizaje por refuerzo</em>.</p>
+<blockquote>
+<p><strong>aprendizaje por refuerzo</strong> 🎯 En inteligencia artificial, el aprendizaje por refuerzo es un enfoque en el que un agente aprende a tomar decisiones mediante la interacción con un entorno, recibiendo recompensas o penalizaciones según sus acciones.
+En el caso de la IA generativa, este método se emplea para afinar modelos utilizando la retroalimentación de personas que evalúan y etiquetan las salidas del modelo, ajustando así su comportamiento para alinearlo con objetivos, valores o preferencias humanas.</p>
+</blockquote>
+<p>En una charla es importante indicar las entradas, por ejemplo, del usuario como <code>Usuario:</code>, y para las salidas del modelo utilizar <code>Asistente:</code>. Esto le da una estructura clara que facilita la interacción.</p>
+<h3 id="estructura-de-indicaciones">Estructura de indicaciones</h3>
+<p>Para mejorar la calidad de la respuesta de un modelo de IA generativa, es fundamental optimizar la estructura de la indicación.<br>
+El modelo debe tener <strong>clara la instrucción</strong> y contar con <strong>contexto suficiente</strong> para interpretar correctamente la solicitud.</p>
+<ul>
+<li>
+<p><strong>Instrucción:</strong> Texto de entrada que describe de forma clara y precisa lo que se desea que el modelo realice.<br>
+Mientras más específica y detallada sea la instrucción, mejor será la calidad de la respuesta.</p>
+</li>
+<li>
+<p><strong>Contexto:</strong> Información adicional y detalles relevantes que ayudan al modelo a comprender mejor la solicitud.<br>
+Este puede incluir datos previos, ejemplos o referencias específicas.</p>
+</li>
+</ul>
+<p>Además, se pueden incluir otros elementos para orientar la respuesta del modelo:</p>
+<ul>
+<li>
+<p><strong>Tono:</strong> Indica el estilo de comunicación que debe utilizar el modelo (formal, informal, técnico, amigable, persuasivo, etc.).</p>
+</li>
+<li>
+<p><strong>Restricciones:</strong> Límites o condiciones que debe respetar la respuesta, como extensión máxima, uso de cierto vocabulario o evitar determinados temas.</p>
+</li>
+</ul>
+
+</body>
+</html>
