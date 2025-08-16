@@ -326,7 +326,7 @@ Muchos modelos generativos han sido formados con datos públicos de Internet, co
 Cada modelo de IA generativa basado en lenguaje tiene un **analizador léxico** que convierte texto legible por seres humanos (por ejemplo, mensajes) en un vector que contiene identidades de analizadores léxicos (token_ids) o de las entradas (input_ids).
 
 <div align="center">
-    <img src="/imagenes/analizador-lexico.jpeg" width="70%">
+    <img src="./imagenes/analizador-lexico.jpeg" width="70%">
 </div>
 
 Cada input_id representa un componente léxico en el vocabulario del modelo.
@@ -337,11 +337,11 @@ Cada input_id representa un componente léxico en el vocabulario del modelo.
 Los vectores de incrustación, a menudo llamados "incrustaciones", se han utilizado en el aprendizaje automático, la recuperación de información y los casos de uso de búsqueda durante décadas. Las incrustaciones son una representación numérica y vectorizada de cualquier entidad de cualquier tipo, incluyendo texto, imágenes, videos y archivos de audio, proyectada en espacios vectoriales de dimensión muy alta.
 
 <div align="center">
-    <img src="/imagenes/vectores-incrustacion2.jpeg" width="70%">
+    <img src="./imagenes/vectores-incrustacion2.jpeg" width="70%">
 </div>
 
 <div align="center">
-    <img src="/imagenes/vectores-incrustacion.jpeg" width="70%">
+    <img src="./imagenes/vectores-incrustacion.jpeg" width="70%">
 </div>
 
 Para mayor simplicidad, usemos un espacio vectorial tridimensional simple en el cual cada incrustación sea un vector de tres valores proyectados en el espacio tridimensional. Aquí, puede ver que los componentes léxicos, como "enseñar" y "libro", están estrechamente relacionados, mientras que otros, como "coche" y "fuego", están más lejos.
@@ -350,7 +350,7 @@ Para mayor simplicidad, usemos un espacio vectorial tridimensional simple en el 
 Lanzados en 2017, los transformadores están en el trono de la mayoría de los modelos de lenguaje modernos. De hecho, la "T" en BERT y GPT, dos arquitecturas lingüísticas muy populares, significa transformador.
 
 <div align="center">
-    <img src="/imagenes/transformador-avanzado.jpeg" width="70%">
+    <img src="./imagenes/transformador-avanzado.jpeg" width="70%">
 </div>
 
 **Componentes principales del transformador:**
@@ -365,7 +365,7 @@ Usualmente, el codificador codifica —o proyecta— secuencias de componentes l
 Los transformadores utilizan un mecanismo llamado **autoatención** para atender a los componentes léxicos de interés mientras pasa por las entradas. La autoatención se utiliza para asistir a cada componente léxico con la entrada de datos y todos los demás componentes léxicos en la secuencia de entrada.
 
 <div align="center">
-    <img src="/imagenes/autoatencion.jpeg" width="70%">
+    <img src="./imagenes/autoatencion.jpeg" width="70%">
 </div>
 
 La atención por pares permite al modelo aprender las dependencias contextuales, o la comprensión contextual, entre todos los datos durante la formación previa del modelo.
@@ -374,11 +374,11 @@ La atención por pares permite al modelo aprender las dependencias contextuales,
 El transformador aprende en realidad conjuntos múltiples de pesos de autoservicio a través de la misma entrada y aprende aspectos diferentes del idioma. Cada cabeza funciona en paralelo sobre la misma entrada y aprende aspectos diferentes del idioma.
 
 <div align="center">
-    <img src="/imagenes/atencion-detalles.jpeg" width="70%">
+    <img src="./imagenes/atencion-detalles.jpeg" width="70%">
 </div>
 
 <div align="center">
-    <img src="/imagenes/atencion-detalles2.jpeg" width="70%">
+    <img src="./imagenes/atencion-detalles2.jpeg" width="70%">
 </div>
 
 #### Decodificador
@@ -388,7 +388,7 @@ Los pesos de atención se pasan a través del resto de la red neuronal del trans
 La capa de salida softmax genera una distribución de probabilidad en todo el vocabulario del componente léxico, en la que se asigna a cada componente cierta probabilidad de ser seleccionado enseguida.
 
 <div align="center">
-    <img src="/imagenes/salida-softmax.jpeg" width="70%">
+    <img src="./imagenes/salida-softmax.jpeg" width="70%">
 </div>
 
 ### Tipos de modelos básicos basados en transformadores
@@ -398,7 +398,7 @@ Hay tres variantes de modelos generativos basados en transformadores: **solo cod
 Los modelos de solo codificador, o autocodificadores, se preforman mediante una técnica denominada **modelado de lenguaje enmascarado (MLM)**, que enmascara aleatoriamente los componentes léxicos de entrada e intenta predecir cuáles son enmascarados.
 
 <div align="center">
-    <img src="/imagenes/modelado-enmascarado.jpeg" width="70%">
+    <img src="./imagenes/modelado-enmascarado.jpeg" width="70%">
 </div>
 
 **Objetivo:** Reconstruir el texto (eliminación de ruido)
@@ -408,7 +408,7 @@ Los modelos de solo codificador, o autocodificadores, se preforman mediante una 
 Los modelos de solo decodificador, o modelos autorregresivos, se preforman utilizando un **modelo lingüístico causal unidireccional (CLM)**, que predice el componente léxico siguiente usando solo los componentes léxicos anteriores.
 
 <div align="center">
-    <img src="/imagenes/modelo-causal.jpeg" width="70%">
+    <img src="./imagenes/modelo-causal.jpeg" width="70%">
 </div>
 
 **Objetivo:** Predecir el siguiente componente léxico
@@ -422,7 +422,7 @@ Los modelos de solo decodificador, o modelos autorregresivos, se preforman utili
 Los modelos de secuencia a secuencia, originalmente diseñados para la traducción, también son muy útiles para tareas de resumen de texto. T5 y su hermano con ajuste fino, FLAN-T5, son modelos bien conocidos de codificador-decodificador, secuencia a secuencia, utilizados en un número amplio de tareas de lenguaje generativo.
 
 <div align="center">
-    <img src="/imagenes/secuencia-secuencia.jpeg" width="70%">
+    <img src="./imagenes/secuencia-secuencia.jpeg" width="70%">
 </div>
 
 **Objetivo:** Reconstrucción del tramo
@@ -441,11 +441,11 @@ Un modelo generativo aprende las funciones durante la fase de formación previa,
 Para los modelos generativos, ha surgido un conjunto de **leyes de escalamiento** que describen las compensaciones entre el tamaño del modelo y el del conjunto de datos para un presupuesto informático fijo (por ejemplo, el número de horas de GPU).
 
 <div align="center">
-    <img src="/imagenes/Requisitos-preformacion.jpeg" width="70%">
+    <img src="./imagenes/Requisitos-preformacion.jpeg" width="70%">
 </div>
 
 <div align="center">
-    <img src="/imagenes/escalamiento-modelos.jpeg" width="70%">
+    <img src="./imagenes/escalamiento-modelos.jpeg" width="70%">
 </div>
 
 Estas leyes de escalamiento establecen que puede lograr un mejor rendimiento del modelo generativo aumentando el número de componentes léxicos o el número de parámetros del modelo.
