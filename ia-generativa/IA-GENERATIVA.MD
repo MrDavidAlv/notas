@@ -3,7 +3,7 @@
 
 # RESUMEN GENERAL SOBRE IA GENERATIVA 
 
-<img src="/imagenes/portada.png" width="20%">
+<img src="./imagenes/portada.png" width="20%">
 
 </div>
 
@@ -45,7 +45,7 @@
 No existe un ciclo de vida definitivo para un proyecto de IA generativa, pero esto podría concentrar las etapas más importantes de un ciclo de proyecto IA.
 
 <div align="center">
-    <img src="/imagenes/ciclo-vida-proyecto-IA.png" width="70%">
+    <img src="./imagenes/ciclo-vida-proyecto-IA.png" width="70%">
 </div>
 
 
@@ -90,13 +90,13 @@ Una aplicación de IA generativa incluye modelos generativos.
 
 <div align="center">
 
-<img src="/imagenes/AppIA.jpeg" width="70%">
+<img src="./imagenes/AppIA.jpeg" width="70%">
 
 </div>
 
 **Diagrama APP ejemplo en AWS**
 <div align="center">
- <img src="/imagenes/AppIAAWS.jpeg" width="70%">
+ <img src="./imagenes/AppIAAWS.jpeg" width="70%">
 </div>
 
 
@@ -114,7 +114,7 @@ Generalmente, las indicaciones se dan en texto y se da una respuesta en texto. E
 Los modelos de IA generativa entienden las instrucciones en contexto a través de tokens, en los cuales las palabras se fragmentan y combinan de diferentes maneras, integrando diversos componentes léxicos.
 
 <div align="center">
- <img src="/imagenes/token.png" width="70%">
+ <img src="./imagenes/token.png" width="70%">
 </div>
 
 > **Token 🧩:** En el contexto de la inteligencia artificial y el procesamiento de lenguaje natural, un token es una unidad mínima de texto que el modelo utiliza para procesar y generar lenguaje.
@@ -237,7 +237,7 @@ Use `<text>...</text>` para estructurar indicaciones complejas y `<respuesta>...
 ### Parámetros de configuración de inferencia
 
 <div align="center">
-    <img src="/imagenes/parametros-config.png" width="70%">
+    <img src="./imagenes/parametros-config.png" width="70%">
 </div>
 
 #### Parámetros principales
@@ -251,21 +251,21 @@ Use `<text>...</text>` para estructurar indicaciones complejas y `<respuesta>...
 - **Muestreo aleatorio**: Selección ponderada aleatoria, más natural
 
 <div align="center">
-    <img src="/imagenes/muestreo-comparacion.png" width="70%">
+    <img src="./imagenes/muestreo-comparacion.png" width="70%">
 </div>
 
 **Top-k**
 Limita selección a los k componentes más probables. Si k=3, elige aleatoriamente entre las 3 opciones principales.
 
 <div align="center">
-    <img src="/imagenes/top-k-ejemplo.png" width="70%">
+    <img src="./imagenes/top-k-ejemplo.png" width="70%">
 </div>
 
 **Top-p**
 Selecciona componentes cuyas probabilidades acumuladas no excedan p. Ejemplo: p=0.32 incluye componentes con probabilidades 0.30, 0.20, 0.10, 0.02.
 
 <div align="center">
-    <img src="/imagenes/top-p-ejemplo.png" width="70%">
+    <img src="./imagenes/top-p-ejemplo.png" width="70%">
 </div>
 
 **Temperatura**
@@ -275,7 +275,7 @@ Controla aleatoriedad modificando distribución de probabilidad:
 - **1**: Mantiene distribución original del modelo
 
 <div align="center">
-    <img src="/imagenes/temperatura-comparacion.png" width="70%">
+    <img src="./imagenes/temperatura-comparacion.png" width="70%">
 </div>
 
 > ⚠️ **Cuidado**: Temperatura muy baja = repeticiones. Temperatura muy alta = sin sentido.
